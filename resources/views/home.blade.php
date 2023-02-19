@@ -17,6 +17,9 @@
               <label for="exampleInputEmail1" class="form-label">Kata kunci 2</label>
               <input type="text" class="form-control" id="katakunci2" name="katakunci2" required/>
         </div>
+    </div>
+    <br>
+    <div class ="row">
         <div class="col-md-6">
               <label for="exampleInputEmail1" class="form-label">Kata kunci 3</label>
               <input type="text" class="form-control" id="katakunci3" name="katakunci3" required/>
@@ -28,7 +31,6 @@
     </div>
     <br>
     <div class="row">
-            
         <div class="col-md-6">
             <label for="exampleInputEmail1" class="form-label">Start Date</label>
             <div class="input-group date" data-provide="datepicker">
@@ -49,40 +51,41 @@
         </div>
     </div>
 
-
     <br>
     <button type="submit" class="btn btn-primary">Scrape</button>
 
   </form>
-
+  <br><br>
   <div class="row">
-    <table id="myTable" class="table table-stripped mt-20">
+   
+    <table id="example" name="example" class="table table-stripped mt-20 example">
         <thead>
             <tr>
-                <th>Tweet<th>
-                <th>Username<th>
-                <th>Followers<th>
-                <th>Following<th>
-                <th>Username Target<th>
-                <th>Date<th>
+                <th>No.</th>
+                <th>Username</th>
+                <th>Followers</th>
+                <th>Following</th>
+                <th>Username Target</th>
+                <th>Date</th>  
             </tr>
         </thead>
+       
         <tbody>
-            @foreach($articles  as $article)
+            @foreach($datatablelist as $data)
             <tr>
-                <td>{{$article}}</td>
+            <td>{{ $loop->iteration }}</td>
+            <td>{{ $data->Username }}</td>
+            <td>{{ $data->Followers }}</td>
+            <td>{{ $data->Following }}</td>
+            <td>{{ $data->Reply }}</td>
+            <td>{{ $data->Date }}</td>
             </tr>
             @endforeach
         </tbody>
+       
     </table>
 </div>
 
 
-<script type="text/javascript">
-    $(document).ready( function () {
-        $('#myTable').DataTable();
-    } );
-    
-    </script>
 
 @endsection

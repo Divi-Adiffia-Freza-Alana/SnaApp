@@ -13,18 +13,7 @@ auth = tweepy.OAuthHandler(api_key, apikey_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-# Open your text file/snscrape output
-tweet_url = pda.read_csv("jago.txt",  encoding='utf-16',index_col=None, header=None, names=["links"])
-tweet_url.head()
-
-
-#Extract the tweet_id using .split function
-af = lambda x: x["links"].split("/")[-1]
-tweet_url['id'] = tweet_url.apply(af, axis=1)
-tweet_url.head()
-
-#convert our tweet_url Series into a list
-ids = tweet_url['id'].tolist()
+ids= [1575631142719344645, 1575628337023631361, 1575520363261227008]
 
 #Process the ids by batch or chunks.
 total_count = len(ids)

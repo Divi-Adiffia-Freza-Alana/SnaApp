@@ -19,10 +19,28 @@ id_ = [1575631142719344645, 1575628337023631361, 1575520363261227008]
 
   
 statuses = api.lookup_statuses(id_, trim_user = True)
+
+#for status in tweepy.Cursor(statuses,count=100).items(250):
+#    print(status.id)
+keywords = ['Tweepy', 'Tweeter']
+listtweet=[]
+for status in tweepy.Cursor(api.search_tweets,'@JadiJago Bank Jago',count=100 ).items(100):
+    tweet_elem = {"Tweet": status.text,
+              "Username": status.user.screen_name,
+              "Jumlah Status": status.user.statuses_count,
+              "Username Target": status.in_reply_to_screen_name,
+              "Date": status.created_at,
+              "Followers": status.user.followers_count,
+              "Following": status.user.friends_count,
+              "retweet": status.retweet_count,
+              "fav": status.favorite_count
+              }                      
+    listtweet.append(tweet_elem)
+print(listtweet)
   
 # printing the statuses
-for status in statuses:
-    print(status.user.id)
+#for status in statuses:
+  #  print(status.user.id)
     
 #def subNumbers(x, y):
   #  return (x-y)

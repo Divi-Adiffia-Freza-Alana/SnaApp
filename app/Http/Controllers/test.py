@@ -4,7 +4,7 @@ import sys
 
 # Setting variables to be used belowmaxTweets = 1000000
 # Creating list to append tweet data to
-maxTweets=2
+maxTweets=1000
 tweets_list2 = []
 
 
@@ -20,7 +20,7 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper(f'{sys.argv[1]} OR {sys.
  
 
     #tweets_list2.append([tweet.content, tweet.user.username, tweet.user.followersCount, tweet.user.friendsCount,tweet.inReplyToUser, tweet.date])#
-    tweets_list2.append(tweet.id) 
+    tweets_list2.append(tweet.id)  
  
    
     #for x in tweets_list2:

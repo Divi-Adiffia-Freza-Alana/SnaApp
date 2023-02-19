@@ -8,6 +8,7 @@ api_key = 'UbNgroGozzdORIHTPgPM6lsFA'
 apikey_secret = 'jubXmREiLJOgsJ9OkH1xYugssxqhEO1g7H2uNG3gp4K5EA9NhW'
 access_token = '1287879462038560768-AGePh1vkMPd5SovBWnfMOmke6SVajz'
 access_token_secret = 'ru4tVeQnb3staMc0f0s64cI0hgfoxMl7XrrVk0krzzXij'
+bearer_token = 'AAAAAAAAAAAAAAAAAAAAAAofhgEAAAAAn1NV8Er2dgYK1D7BLvOqG5Bq2A0%3DfmaHeWVxcE4zIBA0RKjB6nhIgcck2vpJbtUWQHMHARdSjb1aFt'
 
 auth = tweepy.OAuthHandler(api_key, apikey_secret)
 auth.set_access_token(access_token, access_token_secret)

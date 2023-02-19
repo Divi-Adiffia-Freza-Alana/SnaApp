@@ -17,17 +17,20 @@ use Illuminate\Support\Facades\Route;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/', function () {
-    $articles = ['Article 1','Article 2','Article 3'];
-    return view('home',['articles' => $articles]);
-});
+
 
 Route::get('/preprocess', function () {
     return view('preprocess' );
 });
 
 
+Route::get('/',[CrawlController::class, 'index']);
+Route::get('/result',[CrawlController::class, 'result']);
+Route::get('/sna',[CrawlController::class, 'sna']);
+
 Route::get('/visualize',[CrawlController::class, 'visualize']);
+
+Route::get('/Crawl',[CrawlController::class, 'Crawl']);
 
 Route::post('/scrape',[CrawlController::class, 'Scrape']);
 
