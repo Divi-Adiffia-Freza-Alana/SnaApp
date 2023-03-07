@@ -9,11 +9,13 @@ now = datetime.now() # current date and time
 
 # Setting variables to be used belowmaxTweets = 1000000
 # Creating list to append tweet data to
-maxTweets=100
+
+
+maxTweets=2000
 tweets_list2 = []
 
-
-for i,tweet in enumerate(sntwitter.TwitterSearchScraper('@JadiJago OR #BersamaKitaJago OR #SemuaJadiJago OR Bank Jago lang:id since:2022-09-01 until:2022-09-30').get_items()):
+#for i,tweet in enumerate(sntwitter.TwitterSearchScraper('@JadiJago OR #BersamaKitaJago OR #SemuaJadiJago OR Bank Jago lang:id since:2022-09-01 until:2022-09-30').get_items()):
+for i,tweet in enumerate(sntwitter.TwitterSearchScraper(f'{sys.argv[1]} OR {sys.argv[2]} OR {sys.argv[3]} OR {sys.argv[4]} lang:id since:{sys.argv[5]} until:{sys.argv[6]}').get_items()):
     if i>maxTweets:
     
       #print(tweets_list2) 
@@ -27,12 +29,19 @@ for i,tweet in enumerate(sntwitter.TwitterSearchScraper('@JadiJago OR #BersamaKi
       replyuser='null'
     else:
       replyuser=tweet.inReplyToUser.username 
+
+    if(tweet.likeCount is None ) :
+      like=0
+    else:
+      like=tweet.likeCount 
     tweet_elem = {"Tweet": tweet.rawContent,
               "Username": tweet.user.username,
               "Followers": tweet.user.followersCount,
               "Following": tweet.user.friendsCount,
               "Reply": replyuser,
-              "Date":  tweet.date.strftime("%Y/%d/%m, %H:%M:%S")
+              "Date":  tweet.date.strftime("%Y/%d/%m, %H:%M:%S"),
+              "Like": like,
+              "View": tweet.viewCount
               
               }
     #tweets_list2.append([tweet.content, tweet.user.username, tweet.user.followersCount, tweet.user.friendsCount,tweet.inReplyToUser, tweet.date])#

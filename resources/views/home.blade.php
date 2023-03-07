@@ -55,10 +55,12 @@
     <button type="submit" class="btn btn-primary">Scrape</button>
 
   </form>
-  <br><br>
+  <br>
+  <h4 class="mb-30">Total Data : <?php
+    echo(count($datanotfilter));
+    ?> </h4>
   <div class="row">
-   
-    <table id="example" name="example" class="table table-stripped mt-20 example">
+    <table id="example" name="example" class="table table-stripped mt-30 example">
         <thead>
             <tr>
                 <th>No.</th>
@@ -66,6 +68,7 @@
                 <th>Followers</th>
                 <th>Following</th>
                 <th>Username Target</th>
+                <th>Tweet</th>  
                 <th>Date</th>  
             </tr>
         </thead>
@@ -78,6 +81,7 @@
             <td>{{ $data->Followers }}</td>
             <td>{{ $data->Following }}</td>
             <td>{{ $data->Reply }}</td>
+            <td>{{ $data->Tweet }}</td>
             <td>{{ $data->Date }}</td>
             </tr>
             @endforeach

@@ -47,7 +47,7 @@ plt.figure(figsize=(10,10))
 networkx.draw(G, with_labels=True, **options)
 #plt.draw()
 plt.savefig("path.png",dpi=199)
-plt.show()
+#plt.show()
 
 dclist=[]
 
@@ -58,7 +58,7 @@ for w in sorted(degree, key =  degree.get, reverse=True):
 
     dclist.append([w,round(degree[w],5)])
 
-#print(cclist[-1][-1]) 
+#print(dclist[-1][-1]) 
 dclistfix=[] 
 mindc =  dclist[-1][-1]
 maxdc =  dclist[0][-1]
@@ -94,7 +94,8 @@ for zzz in cclist:
     cclistfix.append(fixcc) 
     #cclistfix.append([zzz[0],fixcc]) ada keyusername
     #print(fixcc)
-#print(cclistfix)
+#print(cclistfix[2])
+#exit()
 
 
 final_list=[]
@@ -104,7 +105,7 @@ for i in range(0,len(cclistfix)):
     #            "Username":dc[0],
     #            "Nilai": (cclistfix[i]+dclistfix[i])*0.5,
     #            }
-    sna = { "Nilai": (cclistfix[i]+dclistfix[i])*0.5, "Username": dclist[i][0] }
+    sna = { "Nilai": (cclistfix[i]+dclistfix[i])*0.5, "Username": dclist[i][0], "Dc": dclist[i][-1], "Cc": cclist[i][-1], "CcNormal": cclistfix[i], "DcNormal": dclistfix[i] }
     final_list.append(sna)
 
 

@@ -10,5 +10,5 @@ class unfilter extends Model
     use HasFactory;
     protected $table = 'unfilter';
     protected $primaryKey = 'id';
-    protected $fillable = ['Tweet', 'Username', 'Followers', 'Following', 'Reply', 'Date', 'updated_at', ' created_at' ];
+    protected $fillable = ['Tweet', 'Username', 'Followers', 'Following', 'Reply', 'Date', 'Like', 'View', 'Badwords', 'updated_at', ' created_at' ];
 }
